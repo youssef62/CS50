@@ -1,0 +1,83 @@
+#google_logo{
+    height: 92px;
+    width: 272px;   
+}
+  
+#main_menu_div{
+    text-align: center ; 
+    
+    padding-bottom: 35px ; 
+    padding-top: 109px;
+}
+
+a:visited{
+    text-decoration: none ;        
+}
+#top_menu_div{
+    margin-top:20px ;
+    text-align: right ; 
+    a:link {
+        text-decoration: none ;
+    } 
+    a:hover{
+        text-decoration: underline ; 
+    }
+    a{
+        font-size: 13px ; 
+        font-family: arial; 
+        color:black; 
+        padding-right:  20px ; 
+        opacity: 0.87;
+    }
+}
+
+#footer_div{
+    
+    color: rgba(0,0,0,.54);
+    font-size: 14px ; 
+    font-family: Arial ; 
+    background: #f2f2f2; 
+    line-height: 40px;
+    border-top: 1px solid #e4e4e4;
+    a{
+        padding-left: 27px;
+    }
+    .left_menu{
+        width: 800px; 
+    }  
+    .right_menu{
+        text-align: right ; 
+        margin-right: 30px ; 
+    }
+}
+
+#text_bar{
+    line-height: 34px;
+    font: 16px arial; 
+    font-size: 16px;
+    color: rgba(0,0,0,.87);
+    height: 34px; 
+    width: 502px ; 
+    border: none ; 
+}
+
+#text_bar_div{
+    
+    background-color: white ; 
+    border: 1px solid #dfe1e5;
+    border-radius: 24px ; 
+    height: 44px; 
+    width: 584px;
+    margin-left: 30%;
+    text-align: left ;
+    padding-left: 14px ;  
+    img{
+        height: 15px;
+        width: 15px ; 
+        margin-top: 14.5px ;
+    }
+}
+
+#text_bar_div:hover{
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+}
