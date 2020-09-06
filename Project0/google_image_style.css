@@ -1,0 +1,15 @@
+.search_button {
+  border: none;
+  background-color: transparent;
+  color: blue;
+  display: inline-flex;
+  padding: 0 4px;
+  margin-right: 10px;
+  float: right;
+}
+
+.search_button:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=google_image_style.css.map */
