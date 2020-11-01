@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h1>Flights : </h1>
+</head>
+
+<body>
+    <ul>
+    {% for f in Flights %}
+    <li>
+    <a href = "{% url 'flight' flight=f.id %}">Flight {{f.id}} : </a>
+    {{f}}</li>
+    
+    {% endfor %}
+    </ul>
+</body>
+
+
+</html>
