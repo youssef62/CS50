@@ -1,0 +1,15 @@
+{% extends 'auctions/layout.html' %}
+
+{% block body %}
+    <h2>New Listing : </h2> 
+
+     <div class="form-group">
+     <form action = "{% url 'add' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        
+        <input class="btn btn-primary" type="submit" value="submit listing">
+        
+    </form> 
+    </div>
+{% endblock body %}

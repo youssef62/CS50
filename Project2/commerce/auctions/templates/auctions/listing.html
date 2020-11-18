@@ -1,0 +1,84 @@
+{% extends 'auctions/layout.html' %}
+{% load static %}
+
+
+
+{% block body%}
+
+<div id="product">
+<div class="media">
+<img src = {{listing.photo}}>
+<div class="media-body">
+<h5 class="media-heading">
+{{listing.title}}
+</h5>
+{% if listing in watch_list and user.is_authenticated %}
+   <span class="badge badge-secondary">Watch list</span>
+{% endif %}
+    <span class="badge badge-info"> {{listing.category}} </span>
+<p>{{listing.description}}</p>
+<b> Current bid : </b>${{listing.current_bid.price}} 
+{% if listing.current_bid.bidder %}
+by {{listing.current_bid.bidder.username}}
+{% endif %}
+
+
+{% if user.is_authenticated %}
+    <form action = "{% url 'listing' id=listing.id %}" method = "POST">
+    {% csrf_token %}
+    {% if listing in watch_list %}
+    <input class = "btn btn-secondary" type = "submit" name ="edit_watchlist" value = 'Remove from watchlist'>
+    {% else %}
+    <input class = "btn btn-secondary" type = "submit" name ="edit_watchlist" value = 'Add to watchlist'>
+    {% endif %}
+    </form >
+    
+    {% if listing.creator == user %}
+         <form action = "{% url 'listing' id=listing.id %}" method = "POST">
+            {% csrf_token %}
+            <input class = "btn btn-warning" type = "submit" name ="end_auction" value = 'End auction'>
+        </form>
+    {% endif %}
+
+    
+    <form action ="{% url 'listing' id=listing.id %}" method = "POST">
+    {% csrf_token %}
+
+    <input name="price" type="number" class='form-control' min={{listing.current_bid.price}} required>
+    <input class="btn btn-primary" type = "submit" value = "Bid" name="bid_submit">
+    </form>
+
+    <form action ="{% url 'listing' id=listing.id %}" method = "POST">
+    {% csrf_token %}
+    <input name="content" type="text" class='form-control' required>
+    <input class="btn btn-primary" type = "submit" value = "Post Comment" name="comment_submit">
+    </form>
+
+   {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+{% endif %}
+
+{% if comments %}
+    <h3>comments : </h3>
+{% endif %}
+{% for comment in comments %}
+<div class="media">
+<div class="media-body">
+<b>
+{{comment.user}} </b>
+{{comment.content}}
+</div>
+</div>
+{% endfor %}
+
+</div>
+</div>
+
+
+
+
+</div>
+
+{% endblock %}

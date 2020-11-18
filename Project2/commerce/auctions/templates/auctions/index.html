@@ -1,0 +1,46 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>{{title}} </h2>
+
+    
+    {% for listing in Listings %}
+    
+    
+    <div class="media">
+     <a id="listing_link" href ="{% url 'listing' id=listing.id%}">
+    <img class="mr-3" src={{listing.photo}} >
+    </a>
+    <div class="media-body">
+    <h5 class="media-heading">
+    <a id="listing_link" href ="{% url 'listing' id=listing.id%}">{{listing.title}}</a>
+    </h5>
+    <div class="price" > <b>Price : </b>
+    
+        ${{listing.current_bid.price}} 
+        
+    </div>
+    <p>{{listing.description}}</p>
+
+    <p class="creation_date">Created on {{listing.creation_date}} by <a href="google.com" >{{listing.creator}}</a></p>
+    {% if user.is_authenticated and listing.is_active %}
+    <form action = "{% url 'index' %}" method ="post">
+    {% csrf_token %}
+    <input type = "hidden" name="item" value="{{listing.id}}">
+    
+    <input class = "btn btn-secondary" type = "submit" value = 
+        {% if listing in user.watch_list.all %}
+            'Remove from watchlist'
+        {% else %}
+            'Add to watchlist'
+        {% endif %}
+     >
+    </form>
+    {% endif %}
+    </div>
+    </div>
+    
+    {% endfor %}
+    
+    
+{% endblock %}

@@ -1,0 +1,46 @@
+body {
+    padding: 10px;
+}
+
+.media{
+    border: 1.3px solid rgba(0,0,0,.1);
+    margin-top: 15px;
+    height: auto;
+    padding-left: 50px;
+    padding-top : 10px ; 
+    padding-bottom: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    text-align: left;
+}
+.media * {
+    margin-top: 10px;
+}
+.media-body{
+    margin-left: 20px;
+}
+.media-heading{
+    font-weight: bold;
+    font-size: 30px; 
+}
+
+.creation_date{
+    font-size: 18px;
+    color : grey ; 
+}
+img{
+    width: 200px;
+    height: 200px;
+}
+
+
+#product{
+    padding: 20px;
+    text-align: center ;
+}
+#listing_link {
+    color : black ; 
+}
+#listing_link :hover{
+    color: black;
+} 
